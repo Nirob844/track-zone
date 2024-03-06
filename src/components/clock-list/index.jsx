@@ -3,7 +3,7 @@ import React from 'react';
 const ClockList = () => {
     return (
         <div>
-            <p>ClockLisrt</p>
+            <h1>Clock List</h1>
         </div>
     );
 };
