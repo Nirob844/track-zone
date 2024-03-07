@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { TIMEZONE_OFFSET } from '../../../constants/timezone';
 import { getOffset } from '../../../utils/timezone';
 
-const ClockForm = ({ values, handleClock, title = true, edit = false }) => {
+const ClockForm = ({ values = { title: '', timezone: '', offset: 0 }, handleClock, title = true, edit = false }) => {
 
     const [formValues, setFormValues] = useState({ ...values })
+
+    useEffect(() => {
+        if (TIMEZONE_OFFSET[formValues.timezone]) {
+            setFormValues((prev) => ({
+                ...prev,
+                offset: TIMEZONE_OFFSET[formValues.timezone],
+            }));
+        }
+    }, [formValues.timezone]);
 
     const handleChange = (e) => {
         let { name, value } = e.target;

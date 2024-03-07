@@ -3,7 +3,7 @@ import React from 'react';
 
 const ClockDisplay = ({ date, title, timezone, offset }) => {
 
-    console.log(format(date, 'yyyy-MM-dd hh:mm:ss aaa'));
+    //  console.log(format(date, 'yyyy-MM-dd hh:mm:ss aaa'));
     let offsetHr = offset / 60
     return (
         <div>
