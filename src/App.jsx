@@ -27,6 +27,19 @@ const App = () => {
     setClocks([...clocks, clock])
   }
 
+  const updateClock = (updateClock) => {
+    const updateClocks = clocks.map(clock => {
+      if (clock.id === updateClock.id) return updateClock
+      else return clock
+    })
+    setClocks(updateClocks)
+  }
+
+  const deleteClock = (id) => {
+    const updateClocks = clocks.filter(clock => clock.id !== id)
+    setClocks(updateClocks)
+  }
+
   return (
     <div>
       <LocalClock
@@ -34,7 +47,11 @@ const App = () => {
         updateClock={updateLocalClock}
         createClock={createClock}
       />
-      <ClockList clocks={clocks} />
+      <ClockList
+        clocks={clocks}
+        updateClock={updateClock}
+        deleteClock={deleteClock}
+      />
     </div>
   )
 }

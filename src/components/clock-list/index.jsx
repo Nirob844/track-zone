@@ -1,6 +1,8 @@
 import React from 'react';
+import ClockListItem from './clock-list-item';
 
-const ClockList = ({ clocks }) => {
+const ClockList = ({ clocks, updateClock, deleteClock }) => {
+
     return (
         <div>
             <h3>other clocks</h3>
@@ -9,13 +11,16 @@ const ClockList = ({ clocks }) => {
                 (<p>there is no clock create one</p>)
                 :
                 (
-                    <ul>
+                    <div>
                         {clocks.map(clock => (
-                            <li key={clock.id}>
-                                {JSON.stringify(clock)}
-                            </li>
+                            <ClockListItem
+                                key={clock.id}
+                                clock={clock}
+                                updateClock={updateClock}
+                                deleteClock={deleteClock}
+                            />
                         ))}
-                    </ul>
+                    </div>
                 )
             }
         </div>
