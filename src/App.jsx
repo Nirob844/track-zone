@@ -49,6 +49,7 @@ const App = () => {
       />
       <ClockList
         clocks={clocks}
+        localClock={localClock.date}
         updateClock={updateClock}
         deleteClock={deleteClock}
       />

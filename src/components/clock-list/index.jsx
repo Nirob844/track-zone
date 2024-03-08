@@ -1,7 +1,7 @@
 import React from 'react';
 import ClockListItem from './clock-list-item';
 
-const ClockList = ({ clocks, updateClock, deleteClock }) => {
+const ClockList = ({ clocks, updateClock, deleteClock, localClock }) => {
 
     return (
         <div>
@@ -16,6 +16,7 @@ const ClockList = ({ clocks, updateClock, deleteClock }) => {
                             <ClockListItem
                                 key={clock.id}
                                 clock={clock}
+                                localClock={localClock}
                                 updateClock={updateClock}
                                 deleteClock={deleteClock}
                             />
